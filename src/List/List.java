@@ -5,7 +5,6 @@ public class List {
     //Написати програму на java для роботи з однозв'язним списком.
     //Список реалізувати у вигляді двох класів: список та елемент списку
     Element first;
-    Element last;
 
     public List()
     {
@@ -16,25 +15,19 @@ public class List {
         if (first == null)
         {
             first = new Element(value);
-            last = first;
         }
         else
         {
             Element tmp = new Element(value);
-            first.before = tmp;
             tmp.next = first;
             first = tmp;
         }
     }
+
     public void delFirst(){
         //видалення елементу з початку;
-        if (first != last) {
+        if (first != null) {
             first = first.next;
-            first.before = null;
-        }
-        else{
-            first = null;
-            last = null;
         }
     }
     public void show(){
